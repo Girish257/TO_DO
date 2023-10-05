@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+body{
+        margin: 0;
+        padding: 0;
+        background-color: #DDE6ED;
+    }
+
+.abc{
+        padding: 15px;
+        text-align: center;
+        font-weight: 700;
+        background-color: #27374D;
+        color: #fff;
+        margin-top: 0;
+    }
+
+    .topdiv{
+        background-color:#9DB2BF;
+        box-sizing: border-box;
+        align-items: center;
+        margin: auto;
+        width: 35%; 
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .searchInput {
+        margin: 10px;
+        padding: 0.75rem;
+        border: 0;
+        border-radius: 0.75rem;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 15px;
+        
+    }
+
+    .searchInput:hover {
+        background-color: #27374D;
+        color: white;
+    }
+
+    .aq{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .aer{
+        text-decoration: none;
+        color: black;
+    }
+    
+    .note{
+        padding-top: 15px;
+        padding-right: 5px;
+        margin: 15px;
+    }
+
+</style>
+
+<body>
+    
+    <h1 class="abc" >TO DO</h1>
+
+    <div class="topdiv">
+
+<h2 class="note"><span>Note : </span>Are you sure you want to delete "{{item}}" task ?</h2>
+
+<div class="aq">
+
+    <button class="searchInput"><a class='aer' href="{% url 'list' %}" >Cancel</a></button>
+
+    <form method="POST" action="">
+	{% csrf_token %}
+	<input class="searchInput" type="submit" name="Confirm">
+</div>
+</form>
+</div>
+</body>
+</html>

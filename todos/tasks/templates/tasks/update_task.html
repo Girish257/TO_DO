@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+</head>
+
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: #DDE6ED;
+    }
+    .abc{
+        padding: 15px;
+        text-align: center;
+        font-weight: 700;
+        background-color: #27374D;
+        color: #fff;
+        margin-top: 0;
+    }
+
+    .form{
+        padding-top: 15px;
+        text-align: center;
+
+    }
+
+    .searchInput {
+        margin: 10px;
+        padding: 0.75rem;
+        border: 0;
+        border-radius: 0.75rem;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+    .searchInput:hover {
+        background-color: #27374D;
+        color: #fff;
+        
+    }
+    .topdiv{
+        background-color:#9DB2BF;
+        box-sizing: border-box;
+        align-items: center;
+        margin: auto;
+        width: 39%; 
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    #id_title {
+        padding: 0.5rem;
+        width: 30rem;
+        height: 15px;
+        border-radius: 0.5rem;
+        font-size: 17px;
+        border: none;
+    }
+    .text{
+        font-size: 25px;
+    }
+    .text2{
+        font-size: 20px;
+        text-align: center;
+    }
+
+    #id_complete{
+        font-size: 10px;
+    }
+    @media screen and (width: 960px) {
+        #id_title {
+
+            width: 250px;
+            margin-bottom: 10px;
+        }
+    }
+    label{
+        font-size: 18px;
+    }
+
+
+</style>
+<body>
+    <h1 class="abc">Update Task</h1>
+
+    <div class="topdiv">
+
+<form class="form" method="POST" action="">
+
+    {% csrf_token %}
+
+    {{form}}
+
+    <br>
+
+    <input class="searchInput" type="submit" name="Update Task">
+
+</form>
+</div>
+</body>
+</html>

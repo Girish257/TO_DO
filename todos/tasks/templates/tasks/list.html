@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO List</title>
+    
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: #DDE6ED;
+    }
+   
+    .abc{
+        padding: 15px;
+        text-align: center;
+        font-weight: 700;
+        background-color: #27374D;
+        color: #fff;
+        margin-top: 0;
+    }
+
+    .form{
+        padding-top: 15px;
+        text-align: center;
+
+    }
+
+    .searchInput {
+        padding: 0.75rem;
+        border: 0;
+        border-radius: 0.75rem;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+    #id_title {
+        padding: 0.5rem;
+        width: 30rem;
+        height: 1.5rem;
+        border-radius: 0.5rem;
+        font-size: 17px;
+        border: none;
+    }
+
+    .searchInput:hover {
+        background-color: #27374D;
+        color: #fff;
+        
+    }
+
+    .task {
+        padding: 1.5rem;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ffff;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    }
+
+    .update{
+        text-decoration: none;
+    font-size: 15px;
+    border-radius: 5px;
+    color: #fff;
+    }
+
+    .update:hover {
+        background-color: #27374D;
+    }
+
+    .topdiv{
+        background-color:#9DB2BF;
+        box-sizing: border-box;
+        align-items: center;
+        margin: auto;
+        width: 35%; 
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .xyz{
+        font-size: 1.5rem;
+        padding-right: 15%;
+    }
+
+    button{
+        border-radius: 15px;
+    border: none;
+    background-color: #526D82;
+    color: #fff;
+    padding: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    button:hover {
+        background-color: #27374D;
+        border: 1px solid #27374D;
+    }
+
+    @media screen and (width: 960px) {
+        #id_title {
+
+            width: 250px;
+            margin-bottom: 10px;
+        }
+    }
+</style>
+<body>
+  
+    <h1 class="abc" >TO DO</h1>
+    
+<div class="topdiv">
+<form class="form" method="POST" action="/">
+    {% csrf_token %}
+
+    <input class="inputfield" type="text" name="title" maxlength="200" required="" id="id_title">
+    <input class="searchInput" type="submit" name="Create Task">
+
+</form>
+
+    {% for task in tasks %}
+    
+    <div class="task">
+        
+        
+        {% if task.complete == True %}
+        <strike class="xyz">{{ task }}</strike>
+        {% else %}
+        <span class="xyz">{{ task }}</span>
+        {% endif %}
+       
+    <div>
+        <button><a class="update" href="{% url 'update_task' task.id %}">Update</a></button>
+        <button><a class="update" href="{% url 'delete' task.id %}">Delete</a></button>
+    </div>
+    </div>
+   
+    {% endfor %}
+</div>
+</body>
+</html>
